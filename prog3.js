@@ -41,9 +41,26 @@ class Bank{
             }
         }
 
+        // Fund transfer (acc1 => debit && acc2=> credit)
+        fundtrans(acc1,acc2,fund){
+
+            if(acc1 in this.accountDetails && acc2 in this.accountDetails){
+                this.accountDetails[acc1].balance -= fund
+                this.accountDetails[acc2].balance += fund
+                console.log(`Amount of ${fund} is transfered from ${acc1} to ${acc2}`);
+                console.log(this.accountDetails);
+            }
+
+            else{
+                console.log(`Account no.s not found`);
+            }
+           
+        }
+
 
     }
 
+    
     
 
 
@@ -51,11 +68,17 @@ class Bank{
 
 const obj = new Bank()
 obj.validate(1002)
-
+console.log(`____________________________________`);
 // Authenticate the account
 
 obj.authenticate(1000,'userone')
+console.log(`____________________________________`);
+
 // check the balance
 obj.calbalance(1001)
+console.log(`____________________________________`);
+
 
 // fund transfer
+obj.fundtrans(1000,1003,300)
+console.log(`____________________________________`);
