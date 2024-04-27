@@ -17,25 +17,32 @@ class Bank{
             }
         }
 
+        // Authenticating the bank account
     authenticate(accno,pass){
         // console.log(this.accountDetails);
 
-         for(let i=0;i<this.accountDetails.length;i++){
-            console.log(i);
-            console.log(`abcd`);
-             if( this.accountDetails[i].acno == accno && this.accountDetails[i].password==pass){
-                console.log(`Authentications passed`);
+         for (let i in this.accountDetails) {
+            if (this.accountDetails[i].acno == accno && this.accountDetails[i].password == pass) {
+                console.log(`Authentication passed`);
+                return; // Exit the loop if authentication is successful
             }
-            else{
-                console.log(`Authentication Failed`);
-            } 
         }
+        console.log(`Authentication failed`);
         } 
 
-      
+        // Calculating the balance
+        calbalance(accno){
+            if(accno in this.accountDetails){
+                console.log(this.accountDetails[accno].balance);
+            }
+
+            else{
+                console.log(`Account no not found`);
+            }
+        }
+
+
     }
-
-
 
     
 
@@ -43,11 +50,12 @@ class Bank{
 // Validate a given account number
 
 const obj = new Bank()
-obj.validate(1005)
+obj.validate(1002)
 
 // Authenticate the account
 
 obj.authenticate(1000,'userone')
 // check the balance
+obj.calbalance(1001)
 
 // fund transfer
