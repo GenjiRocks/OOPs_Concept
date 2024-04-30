@@ -219,8 +219,7 @@ const mixedData = [
 
   
   console.log(`1) Use map to create an array of strings containing both the type and value of each element.`);
-//   typevalue = mixedData.map(n1=>n1.map(n2=>typeof n2 =='string'?))
-// DIDNT Get the ANSWER
+
 
   console.log(`__________________________________________`);
 
@@ -245,11 +244,16 @@ const mixedData = [
   console.log(`__________________________________________`);
 
   console.log(`8) Use reduceRight to concatenate and flatten all nested arrays in reverse order.`);
+  
   console.log(`__________________________________________`);
 
   console.log(`
   9) Use arrayFrom to create an array of the lengths of all strings in the nested arrays.`);
+  leng = Array.from(mixedData.flat()).filter(n1=>typeof n1 == 'string').map(n2=>n2.length)
+  console.log(leng);
   console.log(`__________________________________________`);
 
   console.log(` 10) Use includes to check if the word 'apple' is present in any of the nested arrays.`);
+  check = mixedData.some(n1=>n1.includes('apple'))
+  console.log(check);
   console.log(`__________________________________________`);
