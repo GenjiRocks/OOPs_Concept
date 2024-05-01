@@ -241,12 +241,13 @@ console.log(cmbe);
 
   console.log(` 3) Use reduce to concatenate all strings in the nested arrays into a single sentence.`);
 //   Using reduce method didnt get
-words = Array.from(mixedData.flat()).filter(n1=>typeof n1 == 'string')
-str =''
-for(i=0;i<words.length;i++){
-    str += words[i] + ' '
-}
-console.log(str);
+words = Array.from(mixedData.flat()).filter(n1=>typeof n1 == 'string').reduce((n1,n2)=>n1+' '+n2)
+console.log(words);
+// str =''
+// for(i=0;i<words.length;i++){
+//     str += words[i] + ' '
+// }
+// console.log(str);
   console.log(`__________________________________________`);
 
   console.log(`4) Use arrayFrom to create an array of unique strings from the nested arrays.`);
@@ -278,7 +279,7 @@ console.log(str);
 
   console.log(`
   9) Use arrayFrom to create an array of the lengths of all strings in the nested arrays.`);
-  leng = Array.from(mixedData.flat()).filter(n1=>typeof n1 == 'string').map(n2=>n2.length)
+  leng = Array.from(mixedData.flat()).filter(n1=>typeof n1 == 'string').map(n1=>n1.length)
   console.log(leng);
   console.log(`__________________________________________`);
 
