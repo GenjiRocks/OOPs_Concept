@@ -24,15 +24,15 @@ class Bank{
          for (let i in this.accountDetails) {
             if (this.accountDetails[i].acno == accno && this.accountDetails[i].password == pass) {
                 console.log(`Authentication passed`);
-                return; // Exit the loop if authentication is successful
+                return; // Exit the loop if successful
             }
         }
         console.log(`Authentication failed`);
         } 
 
         // Calculating the balance
-        calbalance(accno){
-            if(accno in this.accountDetails){
+        calbalance(accno,pass){
+            if(accno in this.accountDetails && this.accountDetails[accno].password==pass){
                 console.log(this.accountDetails[accno].balance);
             }
 
@@ -75,7 +75,7 @@ obj.authenticate(1000,'userone')
 console.log(`____________________________________`);
 
 // check the balance
-obj.calbalance(1001)
+obj.calbalance(1001,`usertwo`)
 console.log(`____________________________________`);
 
 
