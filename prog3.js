@@ -42,13 +42,20 @@ class Bank{
         }
 
         // Fund transfer (acc1 => debit && acc2=> credit)
-        fundtrans(acc1,acc2,fund){
+        fundtrans(acc1,acc2,fund,pass){
 
-            if(acc1 in this.accountDetails && acc2 in this.accountDetails){
+            if(acc1 in this.accountDetails && acc2 in this.accountDetails && this.accountDetails[acc1].password == pass){
+                if(this.accountDetails[acc1].balance>=fund){
                 this.accountDetails[acc1].balance -= fund
                 this.accountDetails[acc2].balance += fund
                 console.log(`Amount of ${fund} is transfered from ${acc1} to ${acc2}`);
                 console.log(this.accountDetails);
+                }
+
+                else{
+                    console.log(`Insufficient balance`);
+                }
+                
             }
 
             else{
@@ -80,5 +87,5 @@ console.log(`____________________________________`);
 
 
 // fund transfer
-obj.fundtrans(1000,1003,300)
+obj.fundtrans(1000,1003,3000,`userone`)
 console.log(`____________________________________`);
