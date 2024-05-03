@@ -1,4 +1,5 @@
 // Polymorphism - Javascript does not support method overloading
+console.log(`______Method overloading____`);
 
 class A{
     methoda(){
@@ -20,7 +21,7 @@ const obj = new A()
 obj.methoda()
 obj.methoda(5,10)
 
-console.log(`__________Rest Operator______________`);
+console.log(`______Rest Operator - get method overloading_______`);
 // Rest Operator - returns arguments as array
 
 class D{
